@@ -6,6 +6,8 @@ The README generator is a Node.js application-- run from the command line-- that
 
 This will allow developers to quickly setup the foundation of their README, and they will be able to augment the already formatted Markdown document. 
 
+A video example can be found here: [How to](https://drive.google.com/file/d/1uuoheRt0FgkXUXdUHjcA_yVurkmLyK5W/view)
+
 ## Utilized technologies 
 
 This application was built using __JavaScript__.

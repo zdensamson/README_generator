@@ -157,7 +157,7 @@ ${data.test}
 
 ## Questions
 
-Please feel free to reach out to me with any questions at ${data.email}. Or you can check out my GitHub account: __${data.username}__
+Please feel free to reach out to me with any questions at ${data.email}. Or you can check out my GitHub account: [${data.username}](https://github.com/${data.username})
 
         `
     }
@@ -177,5 +177,5 @@ function init() {
 
 // Function call to initialize app
 // init().then(answers => console.log(answers));
-init().then(answers => writeToFile("README.md", answers));
+init().then(answers => writeToFile("readMe.md", answers));
 

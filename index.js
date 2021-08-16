@@ -103,7 +103,71 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    
+
+    if(data.license[0] == "MIT") {
+        data.license.push("![APM](https://img.shields.io/apm/l/vim-mode)");
+    }
+    if(data.license[0] == "APACHE") {
+        data.license.push("![AUR license](https://img.shields.io/aur/license/android-studio)");
+    }
+
+    const generateTxt = data => {
+        return `
+# ${data.projName}
+${data.license[1]}
+
+## Description
+
+${data.projDesc}
+
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+
+## Installation
+
+To install dependencies, run the following command:
+\`\`\`
+${data.dependency}
+\`\`\`
+
+## Usage
+
+${data.repoInstruction}
+
+## License
+
+This project is licensed under the ${data.license[0]} license.
+
+## Contributing
+
+${data.contributeInstruction}
+
+## Tests
+
+To run tests run the following command:
+\`\`\`
+${data.test}
+\`\`\`
+
+## Questions
+
+Please feel free to reach out to me with any questions at ${data.email}. Or you can check out my GitHub account: __${data.username}__
+
+        `
+    }
+      
+    const txt = generateTxt(data);
+
+
+     fs.writeFile(fileName, txt, err => {
+        if (err) throw new Error(err);
+     })
 }
 
 // TODO: Create a function to initialize app
@@ -112,4 +176,6 @@ function init() {
 };
 
 // Function call to initialize app
-init().then(answers => console.log(answers));
+// init().then(answers => console.log(answers));
+init().then(answers => writeToFile("README.md", answers));
+
